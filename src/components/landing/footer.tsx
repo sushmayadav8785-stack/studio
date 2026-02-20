@@ -9,7 +9,7 @@ const footerLinks = {
     { name: 'Dedicated Servers', href: '#' },
   ],
   Legal: [
-    { name: 'Terms of Service', href: '#' },
+    { name: 'Terms of Service', href: '/terms-of-service' },
     { name: 'Privacy Policy', href: '#' },
     { name: 'Acceptable Use', href: '#' },
   ],
