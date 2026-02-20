@@ -16,11 +16,14 @@ export default function Hero() {
           High-Performance Game, VPS, and Minecraft Server Hosting. Powering Gamers and Communities with Zero
           Compromises.
         </p>
-        <div className="mt-8 flex justify-center gap-4">
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button size="lg" className="font-bold" asChild>
+            <Link href="/get-started">Get Started</Link>
+          </Button>
+          <Button size="lg" variant="outline" className="font-bold" asChild>
             <Link href="/pricing">View Pricing</Link>
           </Button>
-          <Button size="lg" variant="outline" className="font-bold">
+          <Button size="lg" variant="ghost" className="font-bold">
             Join Discord
           </Button>
         </div>

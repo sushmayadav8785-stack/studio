@@ -43,7 +43,7 @@ export default function Header() {
               <Link href="/login">Log In</Link>
             </Button>
             <Button asChild>
-              <Link href="/pricing">Get Started</Link>
+              <Link href="/get-started">Get Started</Link>
             </Button>
           </nav>
           <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
@@ -80,7 +80,7 @@ export default function Header() {
                     <Link href="/login" onClick={() => setMenuOpen(false)}>Log In</Link>
                   </Button>
                   <Button size="lg" asChild>
-                    <Link href="/pricing" onClick={() => setMenuOpen(false)}>Get Started</Link>
+                    <Link href="/get-started" onClick={() => setMenuOpen(false)}>Get Started</Link>
                   </Button>
                 </div>
               </SheetFooter>

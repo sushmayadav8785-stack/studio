@@ -28,7 +28,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.variable} font-body antialiased flex min-h-screen flex-col`}>
+      <body className={`${inter.variable} font-body antialiased flex min-h-screen flex-col animated-background`}>
         <Header />
         <main className="flex-1">
           {children}

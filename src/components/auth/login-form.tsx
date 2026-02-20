@@ -9,6 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email.' }),
@@ -18,6 +19,7 @@ const loginSchema = z.object({
 export default function LoginForm() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
 
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
@@ -30,19 +32,26 @@ export default function LoginForm() {
     function onSubmit(values: z.infer<typeof loginSchema>) {
         setIsLoading(true);
         setError(null);
-        // TODO: Implement actual login logic with Firebase
-        console.log(values);
-        setTimeout(() => {
-            setError('Login functionality is not implemented yet.');
-            setIsLoading(false);
-        }, 1000);
+        
+        // Hardcoded admin credentials
+        if (values.email === 'admin@rexhost.com' && values.password === 'password123') {
+            // TODO: Replace with actual Firebase authentication
+            setTimeout(() => {
+                router.push('/admin');
+            }, 1000);
+        } else {
+             setTimeout(() => {
+                setError('Invalid credentials. Please try again.');
+                setIsLoading(false);
+            }, 1000);
+        }
     }
 
     return (
         <Card className="w-full max-w-sm">
             <CardHeader>
-                <CardTitle>Admin Login</CardTitle>
-                <CardDescription>Enter your credentials to access the admin panel.</CardDescription>
+                <CardTitle>Login</CardTitle>
+                <CardDescription>Enter your credentials to access your account.</CardDescription>
             </CardHeader>
             <CardContent>
                 <Form {...form}>
@@ -54,7 +63,7 @@ export default function LoginForm() {
                                 <FormItem>
                                     <FormLabel>Email</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="admin@example.com" {...field} />
+                                        <Input placeholder="user@example.com" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
