@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -16,8 +17,8 @@ export default function Hero() {
           Compromises.
         </p>
         <div className="mt-8 flex justify-center gap-4">
-          <Button size="lg" className="font-bold">
-            View Pricing
+          <Button size="lg" className="font-bold" asChild>
+            <Link href="/pricing">View Pricing</Link>
           </Button>
           <Button size="lg" variant="outline" className="font-bold">
             Join Discord

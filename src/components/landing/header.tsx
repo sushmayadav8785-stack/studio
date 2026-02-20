@@ -7,12 +7,11 @@ import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetFooter
 import { Menu, Rocket } from 'lucide-react';
 
 const navLinks = [
-  { name: 'Products', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Pricing', href: '#' },
-  { name: 'Locations', href: '#' },
-  { name: 'Support', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Features', href: '/features' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Locations', href: '/locations' },
+  { name: 'Support', href: '/support' },
+  { name: 'Company', href: '/company' },
 ];
 
 export default function Header() {
@@ -40,8 +39,12 @@ export default function Header() {
 
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost">Log In</Button>
-            <Button>Get Started</Button>
+            <Button variant="ghost" asChild>
+              <Link href="/login">Log In</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/pricing">Get Started</Link>
+            </Button>
           </nav>
           <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
@@ -73,8 +76,12 @@ export default function Header() {
               </nav>
               <SheetFooter>
                 <div className="flex flex-col gap-4 w-full">
-                  <Button variant="ghost" size="lg">Log In</Button>
-                  <Button size="lg">Get Started</Button>
+                  <Button variant="ghost" size="lg" asChild>
+                    <Link href="/login" onClick={() => setMenuOpen(false)}>Log In</Link>
+                  </Button>
+                  <Button size="lg" asChild>
+                    <Link href="/pricing" onClick={() => setMenuOpen(false)}>Get Started</Link>
+                  </Button>
                 </div>
               </SheetFooter>
             </SheetContent>
