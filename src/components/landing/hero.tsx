@@ -27,11 +27,6 @@ export default function Hero() {
             Join Discord
           </Button>
         </div>
-        <div className="mt-8 flex justify-center">
-          <Badge variant="secondary" className="bg-primary/10 py-1.5 px-4 text-sm text-primary-foreground border-primary/20">
-            🔥 Limited Time Offer! Use code REX20 for 20% off your first month!
-          </Badge>
-        </div>
       </div>
     </section>
   );

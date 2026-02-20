@@ -29,6 +29,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-body antialiased flex min-h-screen flex-col animated-background`}>
+        <div className="bg-primary text-primary-foreground text-center py-2 px-4 text-sm font-medium">
+          🔥 Limited Time Offer! Use code REX20 for 20% off your first month!
+        </div>
         <Header />
         <main className="flex-1">
           {children}

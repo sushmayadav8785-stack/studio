@@ -132,21 +132,21 @@ export default function Pricing() {
             <TabsTrigger value="dedicated">Dedicated Servers</TabsTrigger>
           </TabsList>
           <TabsContent value="game-servers">
-            <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
               {gameServerPlans.map((plan) => (
                 <PlanCard key={plan.name} plan={plan} />
               ))}
             </div>
           </TabsContent>
           <TabsContent value="vps">
-             <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+             <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {vpsPlans.map((plan) => (
                     <PlanCard key={plan.name} plan={plan} />
                 ))}
             </div>
           </TabsContent>
           <TabsContent value="dedicated">
-            <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {dedicatedPlans.map((plan) => (
                     <PlanCard key={plan.name} plan={plan} />
                 ))}
