@@ -1,10 +1,9 @@
-
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetFooter } from '@/components/ui/sheet';
 import { Menu, Rocket } from 'lucide-react';
 
 const navLinks = [
@@ -51,31 +50,33 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex h-full flex-col">
-                <div className="mb-8">
-                  <Link href="/" className="mr-6 flex items-center space-x-2">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] flex flex-col">
+              <SheetHeader>
+                <SheetTitle>
+                  <Link href="/" className="flex items-center space-x-2" onClick={() => setMenuOpen(false)}>
                     <Rocket className="h-6 w-6 text-primary" />
                     <span className="font-bold">Rex Host</span>
                   </Link>
-                </div>
-                <nav className="flex flex-col gap-6 text-lg font-medium">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className="text-foreground/70 transition-colors hover:text-foreground"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </nav>
-                <div className="mt-auto flex flex-col gap-4">
+                </SheetTitle>
+              </SheetHeader>
+              <nav className="flex-1 flex flex-col gap-6 text-lg font-medium mt-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-foreground/70 transition-colors hover:text-foreground"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+              <SheetFooter>
+                <div className="flex flex-col gap-4 w-full">
                   <Button variant="ghost" size="lg">Log In</Button>
                   <Button size="lg">Get Started</Button>
                 </div>
-              </div>
+              </SheetFooter>
             </SheetContent>
           </Sheet>
         </div>
