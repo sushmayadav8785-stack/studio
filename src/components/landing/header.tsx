@@ -22,7 +22,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Rocket className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg">Rex Host</span>
+          <span className="font-bold text-lg">Rex Cloud</span>
         </Link>
 
         <nav className="hidden md:flex md:flex-1 items-center gap-6 text-sm">
@@ -58,7 +58,7 @@ export default function Header() {
                 <SheetTitle>
                   <Link href="/" className="flex items-center space-x-2" onClick={() => setMenuOpen(false)}>
                     <Rocket className="h-6 w-6 text-primary" />
-                    <span className="font-bold">Rex Host</span>
+                    <span className="font-bold">Rex Cloud</span>
                   </Link>
                 </SheetTitle>
               </SheetHeader>

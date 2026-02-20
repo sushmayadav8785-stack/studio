@@ -38,7 +38,7 @@ export default function Faq() {
           </h2>
           <p className="mt-4 text-lg text-foreground/70">
             Have questions? We have answers. If you can&apos;t find what you&apos;re looking for, feel free to contact our
-            support team.
+            support team at <a href="mailto:rexcloudonline@gmail.com" className="text-primary hover:underline">rexcloudonline@gmail.com</a>.
           </p>
         </div>
         <div className="mt-12 mx-auto max-w-3xl">

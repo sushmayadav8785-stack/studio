@@ -10,7 +10,7 @@ export default function Hero() {
       </div>
       <div className="container text-center">
         <h1 className="text-4xl font-black tracking-tighter text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-          Unleash Peak Performance with Rex Host.
+          Unleash Peak Performance with Rex Cloud.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground/80">
           High-Performance Game, VPS, and Minecraft Server Hosting. Powering Gamers and Communities with Zero

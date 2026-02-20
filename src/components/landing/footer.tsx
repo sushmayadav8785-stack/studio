@@ -14,13 +14,13 @@ const footerLinks = {
     { name: 'Acceptable Use', href: '#' },
   ],
   Support: [
-    { name: 'Contact Us', href: '#' },
-    { name: 'Knowledgebase', href: '#' },
+    { name: 'Contact Us', href: '/support' },
+    { name: 'Knowledgebase', href: '/support' },
     { name: 'Server Status', href: '#' },
   ],
   'Quick Links': [
-    { name: 'About Us', href: '#' },
-    { name: 'Locations', href: '#' },
+    { name: 'About Us', href: '/company' },
+    { name: 'Locations', href: '/locations' },
     { name: 'Discord', href: '#' },
   ],
 };
@@ -32,7 +32,7 @@ export default function Footer() {
         <div className="rounded-lg bg-card/50 backdrop-blur-sm border border-border/20 p-8 text-center">
           <h3 className="text-2xl font-bold tracking-tight">Join Our Discord Community</h3>
           <p className="mt-2 text-foreground/70">
-            Get help, chat with other server owners, and stay up-to-date with Rex Host.
+            Get help, chat with other server owners, and stay up-to-date with Rex Cloud.
           </p>
           <Button className="mt-4 font-bold" size="lg">
             Join Discord
@@ -63,10 +63,10 @@ export default function Footer() {
         <div className="container flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center space-x-2">
             <Rocket className="h-5 w-5 text-primary" />
-            <span className="font-bold">Rex Host</span>
+            <span className="font-bold">Rex Cloud</span>
           </div>
           <p className="text-sm text-foreground/70">
-            © {new Date().getFullYear()} Rex Host. All rights reserved.
+            © {new Date().getFullYear()} Rex Cloud. All rights reserved.
           </p>
         </div>
       </div>
