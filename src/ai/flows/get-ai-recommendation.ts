@@ -39,20 +39,23 @@ Here are the available "Rex Host" Minecraft hosting tiers and their specificatio
   - RAM: 4GB
   - Storage: NVMe SSD
   - Bandwidth: Unmetered
-  - Best for: Small vanilla or lightly modded servers, up to 10-15 players.
+  - Player Slots: 10
+  - Best for: Perfect for small communities and vanilla gameplay.
 
 - **Pro Tier**:
   - RAM: 8GB
   - Storage: NVMe SSD
   - Bandwidth: Unmetered
   - Dedicated IP: Free
-  - Best for: Medium-sized vanilla, moderately modded servers, or small heavily modded servers, up to 20-30 players. Good balance of performance and features.
+  - Player Slots: 30
+  - Best for: The best balance of performance for modded servers.
 
 - **Extreme Tier**:
   - RAM: 16GB
   - Storage: NVMe SSD
   - Support: Priority
-  - Best for: Large vanilla, heavily modded servers, or high-performance game servers, 30+ players. Designed for demanding usage.
+  - Player Slots: Unlimited
+  - Best for: For large communities and heavily modded servers.
 
 Consider the following user requirements:
 - Game: {{{game}}}
