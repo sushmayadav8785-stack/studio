@@ -11,69 +11,42 @@ interface Plan {
   isHighlighted: boolean;
 }
 
-const gameServerPlans: Plan[] = [
-  {
-    name: 'Starter',
-    price: '₹799',
-    description: 'Perfect for small communities and vanilla gameplay.',
-    features: ['4GB RAM', 'NVMe SSD', 'Unmetered Bandwidth', '10 Player Slots'],
-    isHighlighted: false,
-  },
-  {
-    name: 'Pro',
-    price: '₹1,599',
-    description: 'The best balance of performance for modded servers.',
-    features: ['8GB RAM', 'NVMe SSD', 'Unmetered Bandwidth', 'Free Dedicated IP', '30 Player Slots'],
-    isHighlighted: true,
-  },
-  {
-    name: 'Extreme',
-    price: '₹3,199',
-    description: 'For large communities and heavily modded servers.',
-    features: ['16GB RAM', 'NVMe SSD', 'Priority Support', 'Unlimited Player Slots'],
-    isHighlighted: false,
-  },
+const normalMcPlans: Plan[] = [
+  { name: 'Silverfish', price: '₹16', description: '2GB RAM, 1v CORES, 10GB DISK', features: ['2GB RAM', '1v Cores', '10GB Disk'], isHighlighted: false },
+  { name: 'Zombie Walker', price: '₹32', description: '4GB RAM, 1v CORES, 15GB DISK', features: ['4GB RAM', '1v Cores', '15GB Disk'], isHighlighted: false },
+  { name: 'Skeleton Archer', price: '₹48', description: '6GB RAM, 2v CORES, 20GB DISK', features: ['6GB RAM', '2v Cores', '20GB Disk'], isHighlighted: false },
+  { name: 'Spider Jumper', price: '₹64', description: '8GB RAM, 2v CORES, 20GB DISK', features: ['8GB RAM', '2v Cores', '20GB Disk'], isHighlighted: true },
+  { name: 'Creeper Bomber', price: '₹80', description: '10GB RAM, 3v CORES, 30GB DISK', features: ['10GB RAM', '3v Cores', '30GB Disk'], isHighlighted: false },
+  { name: 'Enderman Stalker', price: '₹96', description: '12GB RAM, 3v CORES, 30GB DISK', features: ['12GB RAM', '3v Cores', '30GB Disk'], isHighlighted: false },
+  { name: 'Iron Golem', price: '₹128', description: '16GB RAM, 4v CORES, 40GB DISK', features: ['16GB RAM', '4v Cores', '40GB Disk'], isHighlighted: false },
 ];
 
-const vpsPlans: Plan[] = [
-    {
-        name: 'VPS Basic',
-        price: '₹1,299',
-        description: 'A solid starting point for your web projects or applications.',
-        features: ['2 vCPU Cores', '4GB RAM', '80GB NVMe SSD', '2TB Bandwidth'],
-        isHighlighted: false,
-    },
-    {
-        name: 'VPS Plus',
-        price: '₹2,499',
-        description: 'More power for growing applications and databases.',
-        features: ['4 vCPU Cores', '8GB RAM', '160GB NVMe SSD', '4TB Bandwidth'],
-        isHighlighted: true,
-    },
-    {
-        name: 'VPS Pro',
-        price: '₹4,999',
-        description: 'For demanding applications and high-traffic websites.',
-        features: ['8 vCPU Cores', '16GB RAM', '320GB NVMe SSD', '8TB Bandwidth'],
-        isHighlighted: false,
-    },
+const performanceMcPlans: Plan[] = [
+    { name: 'Phantom Flyer', price: '₹40', description: '2GB RAM, 1v CORES, 10GB DISK', features: ['2GB RAM', '1v Cores', '10GB Disk'], isHighlighted: false },
+    { name: 'Blaze Knight', price: '₹80', description: '4GB RAM, 1v CORES, 15GB DISK', features: ['4GB RAM', '1v Cores', '15GB Disk'], isHighlighted: false },
+    { name: 'Ghast Fire', price: '₹120', description: '6GB RAM, 2v CORES, 20GB DISK', features: ['6GB RAM', '2v Cores', '20GB Disk'], isHighlighted: false },
+    { name: 'Wither Boss', price: '₹160', description: '8GB RAM, 2v CORES, 20GB DISK', features: ['8GB RAM', '2v Cores', '20GB Disk'], isHighlighted: true },
+    { name: 'Warden Deep', price: '₹200', description: '10GB RAM, 3v CORES, 30GB DISK', features: ['10GB RAM', '3v Cores', '30GB Disk'], isHighlighted: false },
+    { name: 'Ender Dragon', price: '₹240', description: '12GB RAM, 3v CORES, 30GB DISK', features: ['12GB RAM', '3v Cores', '30GB Disk'], isHighlighted: false },
+    { name: 'Ancient Guardian', price: '₹320', description: '16GB RAM, 4v CORES, 40GB DISK', features: ['16GB RAM', '4v Cores', '40GB Disk'], isHighlighted: false },
 ];
 
-const dedicatedPlans: Plan[] = [
-    {
-        name: 'Dedicated Entry',
-        price: '₹8,999',
-        description: 'Full control and dedicated resources for serious projects.',
-        features: ['Intel Xeon E-2336', '32GB DDR4 RAM', '2x 1TB NVMe SSD', '1Gbps Unmetered'],
-        isHighlighted: false,
-    },
-    {
-        name: 'Dedicated Performance',
-        price: '₹15,999',
-        description: 'High-end performance for mission-critical workloads.',
-        features: ['AMD Ryzen 9 7900X', '64GB DDR5 RAM', '2x 2TB NVMe SSD', '10Gbps Unmetered'],
-        isHighlighted: true,
-    },
+const intelVpsPlans: Plan[] = [
+    { name: 'Coal Plan', price: '₹175', description: 'A solid starting point for your web projects.', features: ['1 Core Intel Xeon', '4GB DDR4 RAM', '50GB NVMe SSD', '1 Dedicated IPv4'], isHighlighted: false },
+    { name: 'Copper Plan', price: '₹260', description: 'More power for growing applications.', features: ['2 Cores Intel Xeon', '8GB DDR4 RAM', '100GB NVMe SSD', '1 Dedicated IPv4'], isHighlighted: false },
+    { name: 'Iron Plan', price: '₹380', description: 'For more demanding applications.', features: ['4 Cores Intel Xeon', '16GB DDR4 RAM', '150GB NVMe SSD', '1 Dedicated IPv4'], isHighlighted: true },
+    { name: 'Diamond Plan', price: '₹980', description: 'For high-traffic websites.', features: ['6 Cores Intel Xeon', '32GB DDR4 RAM', '200GB NVMe SSD', '1 Dedicated IPv4'], isHighlighted: false },
+    { name: 'Netherite Plan', price: '₹1400', description: 'For mission-critical workloads.', features: ['8 Cores Intel Xeon', '64GB DDR4 RAM', '300GB NVMe SSD', '1 Dedicated IPv4'], isHighlighted: false },
+];
+
+const amdVpsPlans: Plan[] = [
+    { name: 'VPS NANO', price: '₹180', description: 'Balanced pricing and strong performance.', features: ['3GB RAM', '1 vCPU Core', '25GB NVMe SSD', 'Private IPv4'], isHighlighted: false },
+    { name: 'VPS MICRO', price: '₹300', description: 'Reliable & cost-effective.', features: ['6GB RAM', '1 vCPU Core', '35GB NVMe SSD', 'Private IPv4'], isHighlighted: false },
+    { name: 'VPS MINI', price: '₹380', description: 'For growing applications.', features: ['8GB RAM', '2 vCPU Cores', '45GB NVMe SSD', 'Private IPv4'], isHighlighted: true },
+    { name: 'VPS STARTER', price: '₹575', description: 'Great for larger projects.', features: ['12GB RAM', '3 vCPU Cores', '65GB NVMe SSD', 'Private IPv4'], isHighlighted: false },
+    { name: 'VPS BASIC', price: '₹750', description: 'For demanding applications.', features: ['20GB RAM', '4 vCPU Cores', '90GB NVMe SSD', 'Private IPv4'], isHighlighted: false },
+    { name: 'VPS ADVANCED', price: '₹920', description: 'With priority node.', features: ['32GB RAM', '6 vCPU Cores', '120GB NVMe SSD', 'Private IPv4'], isHighlighted: false },
+    { name: 'VPS MAX', price: '₹1010', description: 'Highest priority allocation.', features: ['42GB RAM', '8 vCPU Cores', '150GB NVMe SSD', 'Private IPv4'], isHighlighted: false },
 ];
 
 const PlanCard = ({ plan }: { plan: Plan }) => (
@@ -115,6 +88,20 @@ const PlanCard = ({ plan }: { plan: Plan }) => (
     </Card>
 );
 
+const PlanFeatures = ({ title, features }: { title: string, features: string[] }) => (
+    <div className="mt-12 text-center">
+        <h3 className="text-2xl font-bold tracking-tight text-foreground">{title}</h3>
+        <ul className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {features.map((feature, index) => (
+                <li key={index} className="flex items-center gap-2 text-foreground/80">
+                    <Check className="h-5 w-5 text-primary" />
+                    <span>{feature}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
+)
+
 export default function Pricing() {
   return (
     <section className="py-20 sm:py-28">
@@ -125,33 +112,74 @@ export default function Pricing() {
             Choose the perfect plan for your needs. No hidden fees, just pure performance.
           </p>
         </div>
-        <Tabs defaultValue="game-servers" className="mt-12">
-          <TabsList className="grid w-full grid-cols-1 sm:w-auto sm:mx-auto sm:grid-cols-3">
-            <TabsTrigger value="game-servers">Game Servers</TabsTrigger>
-            <TabsTrigger value="vps">VPS</TabsTrigger>
-            <TabsTrigger value="dedicated">Dedicated Servers</TabsTrigger>
+        <Tabs defaultValue="normal-mc" className="mt-12">
+          <TabsList className="grid w-full grid-cols-2 sm:w-auto sm:mx-auto sm:grid-cols-4">
+            <TabsTrigger value="normal-mc">Normal MC</TabsTrigger>
+            <TabsTrigger value="performance-mc">Performance MC</TabsTrigger>
+            <TabsTrigger value="intel-vps">Intel VPS</TabsTrigger>
+            <TabsTrigger value="amd-vps">AMD VPS</TabsTrigger>
           </TabsList>
-          <TabsContent value="game-servers">
-            <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-              {gameServerPlans.map((plan) => (
+
+          <TabsContent value="normal-mc">
+            <div className="mt-8 text-center">
+                <h3 className="text-xl font-bold">Unbeatable Value • Powered by Intel® Xeon® E5 • Just ₹8 per GB!</h3>
+                <p className="text-foreground/70 mt-2 max-w-3xl mx-auto">Looking for reliable, budget-friendly hosting for a chill SMP or playing with friends? Our Normal plans deliver fantastic performance without breaking the bank.</p>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4">
+              {normalMcPlans.map((plan) => (
                 <PlanCard key={plan.name} plan={plan} />
               ))}
             </div>
+            <PlanFeatures title="All Normal Plans Include" features={['Low-Latency Nodes (India & Singapore)', 'Fast NVMe SSD Storage', 'Enterprise DDoS Protection', 'Easy-to-use Pterodactyl Panel', 'Daily Backups', 'Free MySQL Databases']} />
           </TabsContent>
-          <TabsContent value="vps">
-             <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-                {vpsPlans.map((plan) => (
+
+          <TabsContent value="performance-mc">
+             <div className="mt-8 text-center">
+                <h3 className="text-xl font-bold">Maximum Power • Powered by AMD EPYC™ • Just ₹20 per GB!</h3>
+                <p className="text-foreground/70 mt-2 max-w-3xl mx-auto">Built for massive SMPs, heavy modpacks, and serious creators. If you need zero-lag, high-tick-rate performance, the Performance tier is designed specifically for you.</p>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4">
+                {performanceMcPlans.map((plan) => (
                     <PlanCard key={plan.name} plan={plan} />
                 ))}
             </div>
+            <PlanFeatures title="All Performance Plans Include" features={['Ultra Low-Latency Nodes (India & Singapore)', 'High-Frequency Dedicated Threads', 'Ultra-Fast Gen4 NVMe Storage', 'Premium DDoS Protection', 'Full Pterodactyl Panel Access', 'Automated Backups & Free Databases']} />
           </TabsContent>
-          <TabsContent value="dedicated">
-            <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-                {dedicatedPlans.map((plan) => (
+
+          <TabsContent value="intel-vps">
+            <div className="mt-8 text-center">
+                <h3 className="text-xl font-bold">Intel Powered VPS • Secure • Stable • Speed-Optimized</h3>
+                <p className="text-foreground/70 mt-2 max-w-3xl mx-auto">Reliable and powerful VPS servers powered by Intel Xeon processors, perfect for a wide range of applications.</p>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-5">
+                {intelVpsPlans.map((plan) => (
                     <PlanCard key={plan.name} plan={plan} />
                 ))}
             </div>
+            <PlanFeatures title="All Intel VPS Plans Include" features={['DDoS Protection', 'Full Root Access', 'Almost All OS Available', 'Super-Fast NVMe Performance']} />
           </TabsContent>
+
+           <TabsContent value="amd-vps">
+            <div className="mt-8 text-center">
+                <h3 className="text-xl font-bold">AMD Powered VPS • High-Performance • Affordable</h3>
+                <p className="text-foreground/70 mt-2 max-w-3xl mx-auto">Affordable High-Performance VPS Hosting with balanced pricing and strong performance from AMD.</p>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 xl:grid-cols-4">
+                {amdVpsPlans.map((plan) => (
+                    <PlanCard key={plan.name} plan={plan} />
+                ))}
+            </div>
+             <div className="mt-12 text-center max-w-3xl mx-auto">
+                <h3 className="text-2xl font-bold tracking-tight text-foreground">Billing & Usage Policy</h3>
+                <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <li className="flex items-center gap-2 text-foreground/80"><Check className="h-5 w-5 text-primary" /><span>Monthly billing only</span></li>
+                    <li className="flex items-center gap-2 text-foreground/80"><Check className="h-5 w-5 text-primary" /><span>All payments are final & non-refundable</span></li>
+                    <li className="flex items-center gap-2 text-foreground/80"><Check className="h-5 w-5 text-primary" /><span>Excessive resource abuse is not allowed</span></li>
+                    <li className="flex items-center gap-2 text-foreground/80"><Check className="h-5 w-5 text-primary" /><span>Chargebacks result in permanent blacklist</span></li>
+                </ul>
+            </div>
+          </TabsContent>
+
         </Tabs>
       </div>
     </section>
