@@ -1,6 +1,4 @@
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Rocket } from 'lucide-react';
 
 const controlPanelFeatures = [
   'One-Click Plugin Installer',
@@ -11,8 +9,6 @@ const controlPanelFeatures = [
 ];
 
 export default function ControlPanel() {
-  const image = PlaceHolderImages.find((img) => img.id === 'control-panel-mockup');
-
   return (
     <section className="py-20 sm:py-28 bg-background">
       <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -32,17 +28,11 @@ export default function ControlPanel() {
             ))}
           </ul>
         </div>
-        <div className="rounded-lg bg-card/50 backdrop-blur-sm border border-border/20 p-4">
-          {image && (
-            <Image
-              src={image.imageUrl}
-              alt={image.description}
-              data-ai-hint={image.imageHint}
-              width={1200}
-              height={800}
-              className="rounded-md shadow-2xl shadow-primary/10"
-            />
-          )}
+        <div className="flex items-center justify-center rounded-lg bg-card/50 backdrop-blur-sm border border-border/20 p-4 h-full min-h-[300px]">
+          <div className="flex flex-col items-center justify-center gap-4 text-5xl font-black text-primary">
+            <Rocket className="h-20 w-20" />
+            <span className="tracking-tighter">Rex Cloud</span>
+          </div>
         </div>
       </div>
     </section>

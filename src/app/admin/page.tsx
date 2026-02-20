@@ -71,6 +71,7 @@ export default function AdminPage() {
         <TabsList>
           <TabsTrigger value="plans">Manage Plans</TabsTrigger>
           <TabsTrigger value="offers">Manage Offers</TabsTrigger>
+          <TabsTrigger value="content">Site Content</TabsTrigger>
         </TabsList>
         <TabsContent value="plans">
           <Card>
@@ -190,6 +191,54 @@ export default function AdminPage() {
                 />
               </div>
               <Button disabled>Update Offer</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+         <TabsContent value="content">
+          <Card>
+            <CardHeader>
+              <CardTitle>Manage Site Content</CardTitle>
+              <CardDescription>
+                Changes made here will reflect on the respective pages. (Functionality not implemented)
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-semibold mb-4">About Us Section</h3>
+                <Label htmlFor="about-us-content">Content</Label>
+                <Textarea
+                  id="about-us-content"
+                  defaultValue="Rex Cloud was founded by a passionate and trusted team. Our founders are aayu (Founder/Developer), atharv (Founder/Manager), and aadi (Founder/Manager). We were born from a simple mission: to provide the best possible game server hosting experience. We believe in performance, reliability, and top-notch customer support. Our infrastructure is built on the latest hardware to ensure your games run smoothly, and our custom control panel makes managing your server a breeze. Join us and experience the difference."
+                  rows={10}
+                />
+                <Button disabled className="mt-2">Save About Us</Button>
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold mb-4">Terms of Service (Rules)</h3>
+                <Label htmlFor="tos-content">Content</Label>
+                <Textarea
+                  id="tos-content"
+                  placeholder="Terms of service content goes here..."
+                  rows={15}
+                />
+                <p className="text-sm text-muted-foreground mt-2">
+                    Note: For complex HTML, editing directly in the code at src/app/terms-of-service/page.tsx is recommended.
+                </p>
+                <Button disabled className="mt-2">Save Terms</Button>
+              </div>
+               <div>
+                <h3 className="text-2xl font-semibold mb-4">Footer Links</h3>
+                <div className="space-y-4">
+                    <p className="text-muted-foreground">Example of editing 'Legal' links:</p>
+                    <div className="grid grid-cols-2 gap-4">
+                        <Input defaultValue="Terms of Service" />
+                        <Input defaultValue="/terms-of-service" />
+                        <Input defaultValue="Privacy Policy" />
+                        <Input defaultValue="#" />
+                    </div>
+                    <Button disabled className="mt-2">Save Links</Button>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
