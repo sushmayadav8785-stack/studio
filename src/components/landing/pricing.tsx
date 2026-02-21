@@ -81,8 +81,10 @@ const PlanCard = ({ plan }: { plan: Plan }) => (
         </ul>
       </CardContent>
       <CardFooter>
-        <Button className="w-full font-bold" variant={plan.isHighlighted ? 'default' : 'outline'}>
-          Configure Server
+        <Button asChild className="w-full font-bold" variant={plan.isHighlighted ? 'default' : 'outline'}>
+          <a href="https://discord.gg/Rjy2qv7gs" target="_blank" rel="noopener noreferrer">
+            Configure Server
+          </a>
         </Button>
       </CardFooter>
     </Card>
