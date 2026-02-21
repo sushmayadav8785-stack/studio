@@ -11,6 +11,24 @@
       "description": "A stylized dark world map graphic showing global network locations.",
       "imageUrl": "https://images.unsplash.com/photo-1706823871410-ed8b01faef7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b3JsZCUyMG1hcHxlbnwwfHx8fDE3NzE1NDMwOTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "world map"
+    },
+    {
+      "id": "founder-aayu",
+      "description": "Avatar for founder Aayu",
+      "imageUrl": "https://images.unsplash.com/photo-1750535135704-f9a5dba67e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YXZhdGFyJTIwcGVyc29ufGVufDB8fHx8MTc3MTU1NzQ5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "avatar person"
+    },
+    {
+      "id": "founder-aadi",
+      "description": "Avatar for founder Aadi",
+      "imageUrl": "https://images.unsplash.com/photo-1630910561339-4e22c7150093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhdmF0YXIlMjBwZXJzb258ZW58MHx8fHwxNzcxNTU3NDkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "avatar person"
+    },
+    {
+      "id": "founder-atharv",
+      "description": "Avatar for founder Atharv",
+      "imageUrl": "https://images.unsplash.com/photo-1750535135451-7c20e24b60c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhdmF0YXIlMjBwZXJzb258ZW58MHx8fHwxNzcxNTU3NDkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "avatar person"
     }
   ]
 }

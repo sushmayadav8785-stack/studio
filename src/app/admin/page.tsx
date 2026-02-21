@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Terminal } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 
 const normalMcPlansData = [
     { name: 'Silverfish', price: '₹16', features: ['2GB RAM', '1v CORES', '10GB DISK'] },
@@ -51,6 +52,30 @@ const amdVpsPlansData = [
 
 export default function AdminPage() {
   const [offerText, setOfferText] = useState('🔥 Limited Time Offer! Use code REX20 for 20% off your first month!');
+  const [footerLinks, setFooterLinks] = useState([
+    { text: 'Terms of Service', href: '/terms-of-service' },
+    { text: 'Privacy Policy', href: '#' },
+  ]);
+  const { toast } = useToast();
+
+  const handleSave = () => {
+    toast({
+      title: 'Functionality Not Implemented',
+      description: 'This is a visual placeholder. Backend integration is required to save changes.',
+      variant: 'destructive',
+    });
+  };
+
+  const handleAddLink = () => {
+    setFooterLinks([...footerLinks, { text: '', href: '' }]);
+  };
+
+  const handleLinkChange = (index: number, field: 'text' | 'href', value: string) => {
+    const newLinks = [...footerLinks];
+    newLinks[index][field] = value;
+    setFooterLinks(newLinks);
+  };
+
 
   return (
     <div className="container py-12">
@@ -97,7 +122,7 @@ export default function AdminPage() {
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
                           <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
                         </div>
-                        <Button disabled>Save Changes</Button>
+                        <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
                     </Card>
                   ))}
@@ -120,7 +145,7 @@ export default function AdminPage() {
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
                           <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
                         </div>
-                        <Button disabled>Save Changes</Button>
+                        <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
                     </Card>
                   ))}
@@ -143,7 +168,7 @@ export default function AdminPage() {
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
                           <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
                         </div>
-                        <Button disabled>Save Changes</Button>
+                        <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
                     </Card>
                   ))}
@@ -166,7 +191,7 @@ export default function AdminPage() {
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
                           <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
                         </div>
-                        <Button disabled>Save Changes</Button>
+                        <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
                     </Card>
                   ))}
@@ -190,7 +215,7 @@ export default function AdminPage() {
                   onChange={(e) => setOfferText(e.target.value)}
                 />
               </div>
-              <Button disabled>Update Offer</Button>
+              <Button onClick={handleSave}>Update Offer</Button>
             </CardContent>
           </Card>
         </TabsContent>
@@ -211,7 +236,7 @@ export default function AdminPage() {
                   defaultValue="Rex Cloud was founded by a passionate and trusted team. Our founders are aayu (Founder/Developer), atharv (Founder/Manager), and aadi (Founder/Manager). We were born from a simple mission: to provide the best possible game server hosting experience. We believe in performance, reliability, and top-notch customer support. Our infrastructure is built on the latest hardware to ensure your games run smoothly, and our custom control panel makes managing your server a breeze. Join us and experience the difference."
                   rows={10}
                 />
-                <Button disabled className="mt-2">Save About Us</Button>
+                <Button onClick={handleSave} className="mt-2">Save About Us</Button>
               </div>
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Terms of Service (Rules)</h3>
@@ -224,19 +249,30 @@ export default function AdminPage() {
                 <p className="text-sm text-muted-foreground mt-2">
                     Note: For complex HTML, editing directly in the code at src/app/terms-of-service/page.tsx is recommended.
                 </p>
-                <Button disabled className="mt-2">Save Terms</Button>
+                <Button onClick={handleSave} className="mt-2">Save Terms</Button>
               </div>
                <div>
                 <h3 className="text-2xl font-semibold mb-4">Footer Links</h3>
                 <div className="space-y-4">
-                    <p className="text-muted-foreground">Example of editing 'Legal' links:</p>
-                    <div className="grid grid-cols-2 gap-4">
-                        <Input defaultValue="Terms of Service" />
-                        <Input defaultValue="/terms-of-service" />
-                        <Input defaultValue="Privacy Policy" />
-                        <Input defaultValue="#" />
+                    <Label>Edit Footer Links</Label>
+                    {footerLinks.map((link, index) => (
+                        <div key={index} className="grid grid-cols-2 gap-4">
+                            <Input 
+                                value={link.text} 
+                                onChange={(e) => handleLinkChange(index, 'text', e.target.value)}
+                                placeholder="Link Text"
+                            />
+                            <Input 
+                                value={link.href} 
+                                onChange={(e) => handleLinkChange(index, 'href', e.target.value)}
+                                placeholder="Link URL"
+                            />
+                        </div>
+                    ))}
+                    <div className="flex gap-2">
+                        <Button onClick={handleAddLink} variant="outline">Add New Link</Button>
+                        <Button onClick={handleSave}>Save Links</Button>
                     </div>
-                    <Button disabled className="mt-2">Save Links</Button>
                 </div>
               </div>
             </CardContent>
