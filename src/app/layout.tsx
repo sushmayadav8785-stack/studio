@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/landing/header';
 import Footer from '@/components/landing/footer';
 import React from 'react';
+import AnimatedBackground from '@/components/animated-background';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -13,26 +14,6 @@ export const metadata: Metadata = {
   description:
     'High-Performance Game, VPS, and Minecraft Server Hosting. Powering Gamers and Communities with Zero Compromises.',
 };
-
-const AnimatedBackground = () => {
-  const crystalCount = 50;
-  const crystals = React.useMemo(() => {
-    return Array.from({ length: crystalCount }).map((_, i) => {
-      const style: React.CSSProperties = {
-        '--x-start': `${Math.random() * 100}vw`,
-        '--x-end': `${Math.random() * 100}vw`,
-        '--rotate-end': `${Math.random() * 360}deg`,
-        animationDelay: `${Math.random() * -20}s`,
-        animationDuration: `${10 + Math.random() * 10}s`,
-        left: `${Math.random() * 100}%`,
-      };
-      return <div key={i} className="crystal" style={style} />;
-    });
-  }, []);
-
-  return <div className="fixed inset-0 -z-10">{crystals}</div>;
-};
-
 
 export default function RootLayout({
   children,
