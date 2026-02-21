@@ -11,7 +11,7 @@ import { Terminal } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
-const normalMcPlansData = [
+const initialNormalMcPlans = [
     { name: 'Silverfish', price: '₹16', features: ['2GB RAM', '1v CORES', '10GB DISK'] },
     { name: 'Zombie Walker', price: '₹32', features: ['4GB RAM', '1v CORES', '15GB DISK'] },
     { name: 'Skeleton Archer', price: '₹48', features: ['6GB RAM', '2v CORES', '20GB DISK'] },
@@ -21,7 +21,7 @@ const normalMcPlansData = [
     { name: 'Iron Golem', price: '₹128', features: ['16GB RAM', '4v CORES', '40GB DISK'] },
 ];
 
-const performanceMcPlansData = [
+const initialPerformanceMcPlans = [
     { name: 'Phantom Flyer', price: '₹40', features: ['2GB RAM', '1v CORES', '10GB DISK'] },
     { name: 'Blaze Knight', price: '₹80', features: ['4GB RAM', '1v CORES', '15GB DISK'] },
     { name: 'Ghast Fire', price: '₹120', features: ['6GB RAM', '2v CORES', '20GB DISK'] },
@@ -31,7 +31,7 @@ const performanceMcPlansData = [
     { name: 'Ancient Guardian', price: '₹320', features: ['16GB RAM', '4v CORES', '40GB DISK'] },
 ];
 
-const intelVpsPlansData = [
+const initialIntelVpsPlans = [
     { name: 'Coal Plan', price: '₹175', features: ['1 Core Intel Xeon E5-2680', '4 GB DDR4 RAM', '50 GB NVMe SSD'] },
     { name: 'Copper Plan', price: '₹260', features: ['2 Core Intel Xeon E5-2680', '8 GB DDR4 RAM', '100 GB NVMe SSD'] },
     { name: 'Iron Plan', price: '₹380', features: ['4 Core Intel Xeon E5-2680', '16 GB DDR4 RAM', '150 GB NVMe SSD'] },
@@ -39,7 +39,7 @@ const intelVpsPlansData = [
     { name: 'Netherite Plan', price: '₹1400', features: ['8 Core Intel Xeon E5-2680', '64 GB DDR4 RAM', '300 GB NVMe SSD'] },
 ];
 
-const amdVpsPlansData = [
+const initialAmdVpsPlans = [
     { name: 'VPS NANO', price: '₹180', features: ['3 GB RAM', '1 vCPU Core', '25 GB NVMe SSD'] },
     { name: 'VPS MICRO', price: '₹300', features: ['6 GB RAM', '1 vCPU Core', '35 GB NVMe SSD'] },
     { name: 'VPS MINI', price: '₹380', features: ['8 GB RAM', '2 vCPU Cores', '45 GB NVMe SSD'] },
@@ -49,20 +49,39 @@ const amdVpsPlansData = [
     { name: 'VPS MAX', price: '₹1010', features: ['42 GB RAM', '8 vCPU Cores', '150 GB NVMe SSD'] },
 ];
 
+type Plan = { name: string; price: string; features: string[] };
+type Founder = { name: string; role: string; thought: string; imageUrl: string };
 
 export default function AdminPage() {
+  const [normalMcPlansData, setNormalMcPlansData] = useState<Plan[]>(initialNormalMcPlans);
+  const [performanceMcPlansData, setPerformanceMcPlansData] = useState<Plan[]>(initialPerformanceMcPlans);
+  const [intelVpsPlansData, setIntelVpsPlansData] = useState<Plan[]>(initialIntelVpsPlans);
+  const [amdVpsPlansData, setAmdVpsPlansData] = useState<Plan[]>(initialAmdVpsPlans);
+
   const [offerText, setOfferText] = useState('🔥 Limited Time Offer! Use code REX20 for 20% off your first month!');
+  
   const [footerLinks, setFooterLinks] = useState([
     { text: 'Terms of Service', href: '/terms-of-service' },
     { text: 'Privacy Policy', href: '#' },
   ]);
+
+  const [aboutUsContent, setAboutUsContent] = useState("Rex Cloud was founded by a passionate and trusted team. Our founders are aayu (Founder/Developer), atharv (Founder/Manager), and aadi (Founder/Manager). We were born from a simple mission: to provide the best possible game server hosting experience. We believe in performance, reliability, and top-notch customer support. Our infrastructure is built on the latest hardware to ensure your games run smoothly, and our custom control panel makes managing your server a breeze. Join us and experience the difference.");
+  
+  const [founders, setFounders] = useState<Founder[]>([
+    { name: 'aayu', role: 'Founder/Developer', thought: 'Building the future of hosting, one line of code at a time.', imageUrl: 'https://images.unsplash.com/photo-1750535135704-f9a5dba67e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YXZhdGFyJTIwcGVyc29ufGVufDB8fHx8MTc3MTU1NzQ5MXww&ixlib=rb-4.1.0&q=80&w=1080' },
+    { name: 'aadi', role: 'Founder/Manager', thought: 'Focused on creating a seamless and supportive experience for our community.', imageUrl: 'https://images.unsplash.com/photo-1630910561339-4e22c7150093?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhdmF0YXIlMjBwZXJzb258ZW58MHx8fHwxNzcxNTU3NDkxfDA&ixlib=rb-4.1.0&q=80&w=1080' },
+    { name: 'atharv', role: 'Founder/Manager', thought: 'Driving our vision forward and ensuring we deliver on our promises.', imageUrl: 'https://images.unsplash.com/photo-1750535135451-7c20e24b60c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhdmF0YXIlMjBwZXJzb258ZW58MHx8fHwxNzcxNTU3NDkxfDA&ixlib=rb-4.1.0&q=80&w=1080' },
+  ]);
+  
+  const [tosContent, setTosContent] = useState('');
+
+
   const { toast } = useToast();
 
   const handleSave = () => {
     toast({
-      title: 'Functionality Not Implemented',
-      description: 'This is a visual placeholder. Backend integration is required to save changes.',
-      variant: 'destructive',
+      title: 'Changes Saved!',
+      description: 'Your changes have been saved locally for this session.',
     });
   };
 
@@ -75,6 +94,26 @@ export default function AdminPage() {
     newLinks[index][field] = value;
     setFooterLinks(newLinks);
   };
+  
+  const handleFounderChange = (index: number, field: keyof Founder, value: string) => {
+    const newFounders = [...founders];
+    newFounders[index][field] = value;
+    setFounders(newFounders);
+  };
+
+  const createPlanUpdater = <T extends Plan>(
+    plans: T[], 
+    setPlans: React.Dispatch<React.SetStateAction<T[]>>
+  ) => (index: number, field: keyof T, value: string | string[]) => {
+    const newPlans = [...plans];
+    (newPlans[index] as any)[field] = value;
+    setPlans(newPlans);
+  };
+  
+  const handleNormalMcPlanChange = createPlanUpdater(normalMcPlansData, setNormalMcPlansData);
+  const handlePerformanceMcPlanChange = createPlanUpdater(performanceMcPlansData, setPerformanceMcPlansData);
+  const handleIntelVpsPlanChange = createPlanUpdater(intelVpsPlansData, setIntelVpsPlansData);
+  const handleAmdVpsPlanChange = createPlanUpdater(amdVpsPlansData, setAmdVpsPlansData);
 
 
   return (
@@ -88,7 +127,7 @@ export default function AdminPage() {
         <Terminal className="h-4 w-4" />
         <AlertTitle>Developer Note</AlertTitle>
         <AlertDescription>
-          This is a visual placeholder for the admin panel. The forms below are not functional. Backend integration is required to save changes.
+          This admin panel is for demonstration purposes. Changes are stored locally and will not persist after a page reload as there is no backend connected.
         </AlertDescription>
       </Alert>
 
@@ -102,13 +141,13 @@ export default function AdminPage() {
           <Card>
             <CardHeader>
               <CardTitle>Edit Hosting Plans</CardTitle>
-              <CardDescription>Changes made here will reflect on the pricing page. (Functionality not implemented)</CardDescription>
+              <CardDescription>Changes made here are local and for demonstration only.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Normal MC Plans</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {normalMcPlansData.map(plan => (
+                  {normalMcPlansData.map((plan, i) => (
                     <Card key={plan.name} className="bg-card/50">
                       <CardHeader>
                         <CardTitle>{plan.name}</CardTitle>
@@ -116,11 +155,11 @@ export default function AdminPage() {
                       <CardContent className="space-y-4">
                         <div>
                           <Label htmlFor={`${plan.name}-price`}>Price</Label>
-                          <Input id={`${plan.name}-price`} defaultValue={plan.price} />
+                          <Input id={`${plan.name}-price`} value={plan.price} onChange={e => handleNormalMcPlanChange(i, 'price', e.target.value)} />
                         </div>
                         <div>
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
-                          <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
+                          <Textarea id={`${plan.name}-features`} value={plan.features.join(', ')} onChange={e => handleNormalMcPlanChange(i, 'features', e.target.value.split(',').map(f => f.trim()))} />
                         </div>
                         <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
@@ -131,7 +170,7 @@ export default function AdminPage() {
               <div className="mt-8">
                 <h3 className="text-2xl font-semibold mb-4">Performance MC Plans</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {performanceMcPlansData.map(plan => (
+                  {performanceMcPlansData.map((plan, i) => (
                     <Card key={plan.name} className="bg-card/50">
                       <CardHeader>
                         <CardTitle>{plan.name}</CardTitle>
@@ -139,11 +178,11 @@ export default function AdminPage() {
                       <CardContent className="space-y-4">
                         <div>
                           <Label htmlFor={`${plan.name}-price`}>Price</Label>
-                          <Input id={`${plan.name}-price`} defaultValue={plan.price} />
+                          <Input id={`${plan.name}-price`} value={plan.price} onChange={e => handlePerformanceMcPlanChange(i, 'price', e.target.value)} />
                         </div>
                         <div>
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
-                          <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
+                          <Textarea id={`${plan.name}-features`} value={plan.features.join(', ')} onChange={e => handlePerformanceMcPlanChange(i, 'features', e.target.value.split(',').map(f => f.trim()))} />
                         </div>
                         <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
@@ -154,7 +193,7 @@ export default function AdminPage() {
               <div className="mt-8">
                 <h3 className="text-2xl font-semibold mb-4">Intel VPS Plans</h3>
                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {intelVpsPlansData.map(plan => (
+                  {intelVpsPlansData.map((plan, i) => (
                     <Card key={plan.name} className="bg-card/50">
                       <CardHeader>
                         <CardTitle>{plan.name}</CardTitle>
@@ -162,11 +201,11 @@ export default function AdminPage() {
                       <CardContent className="space-y-4">
                         <div>
                           <Label htmlFor={`${plan.name}-price`}>Price</Label>
-                          <Input id={`${plan.name}-price`} defaultValue={plan.price} />
+                          <Input id={`${plan.name}-price`} value={plan.price} onChange={e => handleIntelVpsPlanChange(i, 'price', e.target.value)} />
                         </div>
                         <div>
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
-                          <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
+                          <Textarea id={`${plan.name}-features`} value={plan.features.join(', ')} onChange={e => handleIntelVpsPlanChange(i, 'features', e.target.value.split(',').map(f => f.trim()))} />
                         </div>
                         <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
@@ -177,7 +216,7 @@ export default function AdminPage() {
                <div className="mt-8">
                 <h3 className="text-2xl font-semibold mb-4">AMD VPS Plans</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {amdVpsPlansData.map(plan => (
+                  {amdVpsPlansData.map((plan, i) => (
                     <Card key={plan.name} className="bg-card/50">
                       <CardHeader>
                         <CardTitle>{plan.name}</CardTitle>
@@ -185,11 +224,11 @@ export default function AdminPage() {
                       <CardContent className="space-y-4">
                         <div>
                           <Label htmlFor={`${plan.name}-price`}>Price</Label>
-                          <Input id={`${plan.name}-price`} defaultValue={plan.price} />
+                          <Input id={`${plan.name}-price`} value={plan.price} onChange={e => handleAmdVpsPlanChange(i, 'price', e.target.value)} />
                         </div>
                         <div>
                           <Label htmlFor={`${plan.name}-features`}>Features (comma-separated)</Label>
-                          <Textarea id={`${plan.name}-features`} defaultValue={plan.features.join(', ')} />
+                          <Textarea id={`${plan.name}-features`} value={plan.features.join(', ')} onChange={e => handleAmdVpsPlanChange(i, 'features', e.target.value.split(',').map(f => f.trim()))} />
                         </div>
                         <Button onClick={handleSave}>Save Changes</Button>
                       </CardContent>
@@ -224,7 +263,7 @@ export default function AdminPage() {
             <CardHeader>
               <CardTitle>Manage Site Content</CardTitle>
               <CardDescription>
-                Changes made here will reflect on the respective pages. (Functionality not implemented)
+                Changes made here are local and for demonstration only.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
@@ -233,23 +272,58 @@ export default function AdminPage() {
                 <Label htmlFor="about-us-content">Content</Label>
                 <Textarea
                   id="about-us-content"
-                  defaultValue="Rex Cloud was founded by a passionate and trusted team. Our founders are aayu (Founder/Developer), atharv (Founder/Manager), and aadi (Founder/Manager). We were born from a simple mission: to provide the best possible game server hosting experience. We believe in performance, reliability, and top-notch customer support. Our infrastructure is built on the latest hardware to ensure your games run smoothly, and our custom control panel makes managing your server a breeze. Join us and experience the difference."
+                  value={aboutUsContent}
+                  onChange={(e) => setAboutUsContent(e.target.value)}
                   rows={10}
                 />
                 <Button onClick={handleSave} className="mt-2">Save About Us</Button>
               </div>
+
+               <div className="space-y-6">
+                <h3 className="text-2xl font-semibold mb-4">Founders Section</h3>
+                {founders.map((founder, index) => (
+                  <Card key={index} className="bg-card/50">
+                    <CardHeader>
+                      <CardTitle>Edit {founder.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div>
+                        <Label htmlFor={`founder-name-${index}`}>Name</Label>
+                        <Input id={`founder-name-${index}`} value={founder.name} onChange={(e) => handleFounderChange(index, 'name', e.target.value)} />
+                      </div>
+                      <div>
+                        <Label htmlFor={`founder-role-${index}`}>Role</Label>
+                        <Input id={`founder-role-${index}`} value={founder.role} onChange={(e) => handleFounderChange(index, 'role', e.target.value)} />
+                      </div>
+                      <div>
+                        <Label htmlFor={`founder-thought-${index}`}>Thought</Label>
+                        <Textarea id={`founder-thought-${index}`} value={founder.thought} onChange={(e) => handleFounderChange(index, 'thought', e.target.value)} />
+                      </div>
+                      <div>
+                        <Label htmlFor={`founder-image-${index}`}>Image URL (Profile Picture)</Label>
+                        <Input id={`founder-image-${index}`} value={founder.imageUrl} onChange={(e) => handleFounderChange(index, 'imageUrl', e.target.value)} />
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+                <Button onClick={handleSave}>Save Founders Section</Button>
+              </div>
+
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Terms of Service (Rules)</h3>
                 <Label htmlFor="tos-content">Content</Label>
                 <Textarea
                   id="tos-content"
-                  placeholder="Terms of service content goes here..."
+                  value={tosContent}
+                  onChange={(e) => setTosContent(e.target.value)}
+                  placeholder="The content for the Terms of Service page is currently managed directly in the code at src/app/terms-of-service/page.tsx."
                   rows={15}
+                  disabled
                 />
-                <p className="text-sm text-muted-foreground mt-2">
-                    Note: For complex HTML, editing directly in the code at src/app/terms-of-service/page.tsx is recommended.
+                 <p className="text-sm text-muted-foreground mt-2">
+                    Editing this content requires code changes. This is a display-only field for now.
                 </p>
-                <Button onClick={handleSave} className="mt-2">Save Terms</Button>
+                <Button onClick={handleSave} className="mt-2" disabled>Save Terms</Button>
               </div>
                <div>
                 <h3 className="text-2xl font-semibold mb-4">Footer Links</h3>
