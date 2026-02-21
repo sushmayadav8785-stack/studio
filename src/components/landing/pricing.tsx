@@ -104,7 +104,11 @@ const PlanFeatures = ({ title, features }: { title: string, features: string[] }
     </div>
 )
 
-export default function Pricing() {
+interface PricingProps {
+    defaultTab?: string;
+}
+
+export default function Pricing({ defaultTab = 'normal-mc' }: PricingProps) {
   return (
     <section className="py-20 sm:py-28">
       <div className="container">
@@ -114,7 +118,7 @@ export default function Pricing() {
             Choose the perfect plan for your needs. No hidden fees, just pure performance.
           </p>
         </div>
-        <Tabs defaultValue="normal-mc" className="mt-12">
+        <Tabs defaultValue={defaultTab} className="mt-12">
           <TabsList className="grid w-full grid-cols-2 sm:w-auto sm:mx-auto sm:grid-cols-4">
             <TabsTrigger value="normal-mc">Normal MC</TabsTrigger>
             <TabsTrigger value="performance-mc">Performance MC</TabsTrigger>

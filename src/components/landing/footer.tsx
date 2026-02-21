@@ -4,8 +4,8 @@ import { Rocket } from 'lucide-react';
 
 const footerLinks = {
   Products: [
-    { name: 'Minecraft Hosting', href: '#' },
-    { name: 'VPS Hosting', href: '#' },
+    { name: 'Minecraft Hosting', href: '/pricing?tab=normal-mc' },
+    { name: 'VPS Hosting', href: '/pricing?tab=intel-vps' },
     { name: 'Dedicated Servers', href: '#' },
   ],
   Legal: [
@@ -21,7 +21,7 @@ const footerLinks = {
   'Quick Links': [
     { name: 'About Us', href: '/company' },
     { name: 'Locations', href: '/locations' },
-    { name: 'Discord', href: '#' },
+    { name: 'Discord', href: 'https://discord.gg/Rjy2qv7gs' },
   ],
 };
 
@@ -34,8 +34,10 @@ export default function Footer() {
           <p className="mt-2 text-foreground/70">
             Get help, chat with other server owners, and stay up-to-date with Rex Cloud.
           </p>
-          <Button className="mt-4 font-bold" size="lg">
-            Join Discord
+          <Button className="mt-4 font-bold" size="lg" asChild>
+            <a href="https://discord.gg/Rjy2qv7gs" target="_blank" rel="noopener noreferrer">
+              Join Discord
+            </a>
           </Button>
         </div>
 
@@ -46,12 +48,14 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 {links.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <a
                       href={link.href}
+                      target={link.href.startsWith('http') ? '_blank' : '_self'}
+                      rel="noopener noreferrer"
                       className="text-foreground/70 transition-colors hover:text-primary"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>

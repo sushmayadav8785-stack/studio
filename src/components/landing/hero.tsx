@@ -23,8 +23,10 @@ export default function Hero() {
           <Button size="lg" variant="outline" className="font-bold" asChild>
             <Link href="/pricing">View Pricing</Link>
           </Button>
-          <Button size="lg" variant="ghost" className="font-bold">
-            Join Discord
+          <Button size="lg" variant="ghost" className="font-bold" asChild>
+            <a href="https://discord.gg/Rjy2qv7gs" target="_blank" rel="noopener noreferrer">
+              Join Discord
+            </a>
           </Button>
         </div>
       </div>
