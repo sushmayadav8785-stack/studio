@@ -16,7 +16,7 @@ const footerLinks = {
   Support: [
     { name: 'Contact Us', href: '/support' },
     { name: 'Knowledgebase', href: '/support' },
-    { name: 'Server Status', href: '#' },
+    { name: 'Server Status', href: 'https://status.rexcloud.online/' },
   ],
   'Quick Links': [
     { name: 'About Us', href: '/company' },

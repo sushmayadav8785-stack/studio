@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Rocket, LogIn, ExternalLink, CreditCard } from 'lucide-react';
-import Link from 'next/link';
 
 export default function GetStartedPage() {
   return (
@@ -19,10 +18,10 @@ export default function GetStartedPage() {
           </p>
           <div className="flex flex-col space-y-4">
             <Button asChild size="lg" className="justify-start">
-              <Link href="/login">
+              <a href="https://consoles.rexcloud.online/" target="_blank" rel="noopener noreferrer">
                 <LogIn className="mr-2 h-5 w-5" />
                 Access Control Panel
-              </Link>
+              </a>
             </Button>
             <Button asChild size="lg" className="justify-start">
               <a href="https://discord.gg/Rjy2qv7gs" target="_blank" rel="noopener noreferrer">
@@ -46,7 +45,7 @@ export default function GetStartedPage() {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline" className="justify-start">
-               <a href="#" target="_blank" rel="noopener noreferrer">
+               <a href="https://status.rexcloud.online/" target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-5 w-5" />
                 Check Server Status
               </a>
